@@ -36,13 +36,6 @@ VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 # Back to the root user
 USER root
 
-# GO
-RUN apt-get install -t golang-go
-
-# Build script
-go get -u -v github.com/bozaro/tech-db-forum
-go build github.com/bozaro/tech-db-forum
-
 # JDK
 RUN apt-get install -y openjdk-8-jdk-headless
 RUN apt-get install -y maven
@@ -64,4 +57,4 @@ EXPOSE 5000
 CMD service postgresql start && java -Xmx300M -Xmx300M -jar $WORK/target/AParpibaevDB-1.0.0.jar
 
 #FILL_DATABASE
-RUN ./tech-db-forum fill
+RUN ./filldb_script/tech-db-forum fill
