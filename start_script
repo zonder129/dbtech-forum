@@ -12,7 +12,5 @@ echo "synchronous_commit = off" >> /etc/postgresql/$PGVER/main/postgresql.conf
 su havofavo
 sudo apt-get install -y openjdk-8-jdk-headless
 sudo apt-get install -y maven
-git pull https://github.com/zonder129/dbtech-forum
-cd dbtech-forum
 mvn package
 sudo service postgresql start && java -Xmx300M -Xmx300M -jar ./target/AParpibaevDB-1.0.0.jar 
