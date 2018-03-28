@@ -1,5 +1,5 @@
 apt-get -y update
-sudo apt-get install -y postgresql -9.5
+sudo apt-get install -y postgresql postgresql-contrib
 su postgres
 /etc/init.d/postgresql start &&\
     psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
