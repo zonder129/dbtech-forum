@@ -54,7 +54,4 @@ EXPOSE 5000
 #
 # start
 #
-CMD service postgresql start && java -Xmx300M -Xmx300M -jar $WORK/target/AParpibaevDB-1.0.0.jar
-
-#FILL_DATABASE
-RUN ./filldb_script/tech-db-forum fill
+CMD service postgresql start && java -Xmx300M -Xmx300M -jar $WORK/target/AParpibaevDB-1.0.0.jar && ./filldb_script/tech-db-forum fill
