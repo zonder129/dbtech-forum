@@ -1,0 +1,18 @@
+apt-get -y update
+sudo apt-get install -y postgresql -9.5
+su postgres
+/etc/init.d/postgresql start &&\
+    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
+    createdb -E UTF8 -T template0 -O docker docker &&\
+    /etc/init.d/postgresql stop
+echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/$PGVER/main/pg_hba.conf
+echo "listen_addresses='*'" >> /etc/postgresql/$PGVER/main/postgresql.conf
+echo "synchronous_commit = off" >> /etc/postgresql/$PGVER/main/postgresql.conf
+# my user is mostly havofavo but suposed to be something else
+su havofavo
+sudo apt-get install -y openjdk-8-jdk-headless
+sudo apt-get install -y maven
+git pull https://github.com/zonder129/dbtech-forum
+cd dbtech-forum
+mvn package
+sudo service postgresql start && java -Xmx300M -Xmx300M -jar ./target/AParpibaevDB-1.0.0.jar 
