@@ -31,8 +31,8 @@ API для курсовой работы по дисциплине Базы Да
 
 Контейнер будет собираться из запускаться командами вида:
 ```
-docker build -t a.navrotskiy https://github.com/bozaro/tech-db-forum-server.git
-docker run -p 5000:5000 --name a.navrotskiy -t a.navrotskiy
+docker build -t a.parpibaev https://github.com/zonder129/dbtech-forum.git
+docker run -p 5000:5000 --name a.parpibaev -t a.parpibaev
 ```
 
 В качестве отправной точки можно посмотреть на примеры реализации более простого API на различных языках программирования: https://github.com/bozaro/tech-db-hello/
